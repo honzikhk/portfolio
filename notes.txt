@@ -1,0 +1,1 @@
+problem: doesnt display coin names in homepage.html

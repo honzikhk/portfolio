@@ -1,0 +1,9 @@
+{% extends 'cryptocurrencies/base.html' %}
+
+{% block body %}
+<p>Homepage - Crypto</p>
+{% endblock body %}
+
+{% for coin in object_list %}
+<p>{{ coin.name }}</p>
+{% endfor %}

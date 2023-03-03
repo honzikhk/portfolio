@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
+from .views import CryptocurrenciesHomepageView
 
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", CryptocurrenciesHomepageView.as_view(), name="cryptocurrencies_homepage"),
 ]
