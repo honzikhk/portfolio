@@ -2,8 +2,12 @@
 
 {% block body %}
 <p>Homepage - Crypto</p>
-{% endblock body %}
+
+
 
 {% for coin in object_list %}
-<p>{{ coin.name }}</p>
+<p><span>{{ coin.name }} </span><span>{{ coin.amount }}</span></p>
+
 {% endfor %}
+
+{% endblock body %}

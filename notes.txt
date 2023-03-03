@@ -1,1 +1,3 @@
-problem: doesnt display coin names in homepage.html
+# problem: doesnt display coin names in homepage.html - object_list :)
+data via api is in programming/trash
+prepare data sets (names of coins, prices,...)
