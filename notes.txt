@@ -1,3 +1,5 @@
-# problem: doesnt display coin names in homepage.html - object_list :)
+# problem: doesnt display coin names in homepage.html -solved by: object_list :)
 data via api is in programming/trash
 prepare data sets (names of coins, prices,...)
+# installed python-decouple, hide django secret key to .env file - solved there was-
+# confllict between decouple x python-decouple
