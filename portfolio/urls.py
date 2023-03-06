@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, path
+from cryptocurrencies.views import HomepageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("cryptocurrencies/", include("cryptocurrencies.urls")),        # maybe can be only "" instead "cryptocurrencies/"
+    path("cryptocurrencies/", include("cryptocurrencies.urls")),
+    path("", HomepageView.as_view(), name="main_homepage"),
 ]

@@ -1,15 +1,21 @@
+"""
+only backup, can be deleted later
+"""
+
+
 from requests import Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
+from decouple import config
 
-def get_all_coin_and_information():
+def get_all_coins_and_informations_to_json_file():
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
     parameters = {
-        #'limit':'50',
+        'limit':'50',
     }
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': '2f38cdc8-46d7-4b2d-9a08-e978a97d247a',        # hide this
+        'X-CMC_PRO_API_KEY': config("X-CMC_PRO_API_KEY"),        # the key is in .env file
     }
 
     session = Session()
@@ -20,11 +26,10 @@ def get_all_coin_and_information():
         data = json.loads(response.text)
         return data
     except (ConnectionError, Timeout, TooManyRedirects) as e:
-        #print(e)
         return e
-    
 
-data_for_json = json.dumps(get_all_coin_and_information())
+
+data_for_json = json.dumps(get_all_coins_and_informations_to_json_file())
 
 with open("all_data.json", "w") as outfile:
     outfile.write(data_for_json)

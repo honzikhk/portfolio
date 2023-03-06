@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from .models import CryptoCurrency
 
 
@@ -9,3 +9,7 @@ class CryptocurrenciesHomepageView(ListView):
 
 def get_price_per_coin(coin):
     return price
+
+
+class HomepageView(TemplateView):   # this view maybe should be moved somewhere away, same the main_homepage.html
+    template_name = "cryptocurrencies/main_homepage.html"
