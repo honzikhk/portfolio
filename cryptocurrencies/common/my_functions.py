@@ -37,8 +37,14 @@ def write_all_data_to_json_file():
         outfile.write(data_for_json)
 
 
-def extract_price(list_of_coins):
+def extract_id(list_of_coins):
+    name_id = {}
+
+    with open("cryptocurrencies/common/all_data.json", "r") as json_file:
+        data_from_json = json.load(json_file)
+
     for coin in list_of_coins:
-        for name in all_data.json:
-            if coin.lower() == name:
-                pass
+        for data in data_from_json["data"]:
+            if coin.lower() == data["name"].lower():
+                name_id[coin] = data["id"]
+    return name_id
