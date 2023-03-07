@@ -35,3 +35,10 @@ def write_all_data_to_json_file():
 
     with open("all_data.json", "w") as outfile:
         outfile.write(data_for_json)
+
+
+def extract_price(list_of_coins):
+    for coin in list_of_coins:
+        for name in all_data.json:
+            if coin.lower() == name:
+                pass

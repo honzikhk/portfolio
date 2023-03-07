@@ -7,3 +7,4 @@
 # todo: hide apikey to .env file
 # todo: merge trash.py and my_functions.py
 # made link from main_homepage, create main_homepage.html, homepageview
+todo: for CryptocurrenciesHomepageView make function (extract price) that returns dict of my coins with prices
