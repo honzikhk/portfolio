@@ -11,8 +11,10 @@
 {% endfor %}
 <p>just object list</p>
 <p>{{ object_list }}</p>
-{% for each in coins %} OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    <p>{{each.name}}</p>
+{% for each in coins_id %}
+    <p>{{each}}</p>
 {% endfor %}
+here should be content of "get_context_data":
+<p>{{ coins_id }}</p>
 
 {% endblock body %}

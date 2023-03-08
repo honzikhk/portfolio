@@ -15,8 +15,9 @@ class CryptocurrenciesHomepageView(ListView):
         list_of_names = []
         for each in my_object_list:
             list_of_names.append(each.name)
-        context["coins"] = extract_id(list_of_names)
-        # context['now'] = timezone.now()
+        context["coins_id"] = extract_id(list_of_names)
+        context["coins_prices"] = find_prices(context["coins_id"])
+
         return context
 
 

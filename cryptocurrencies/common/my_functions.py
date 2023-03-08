@@ -7,9 +7,11 @@ def get_all_coins_and_informations():
     """
     take data from coinmarketcap and return it. In case of fail, raise error. The parameter "limit" sets how many coin will be in json
     """
+    # url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'       # link for price. must contain id,slug or symbol
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
     parameters = {
-        'limit':'50',
+        # 'limit':'50',
+        # "id":"1",
     }
     headers = {
         'Accepts': 'application/json',
@@ -38,8 +40,10 @@ def write_all_data_to_json_file():
 
 
 def extract_id(list_of_coins):
+    """
+    Iterate through the "list_of_coins" and searching for same name in all_data.json - extract id and make dictionary of pairs name:id
+    """
     name_id = {}
-
     with open("cryptocurrencies/common/all_data.json", "r") as json_file:
         data_from_json = json.load(json_file)
 
@@ -48,3 +52,7 @@ def extract_id(list_of_coins):
             if coin.lower() == data["name"].lower():
                 name_id[coin] = data["id"]
     return name_id
+
+
+def find_prices(dict_of_names_id):
+    pass
