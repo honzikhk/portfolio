@@ -1,7 +1,7 @@
 from django.views.generic import ListView, TemplateView
 from .models import CryptoCurrency
 
-from cryptocurrencies.common.my_functions import extract_id
+from cryptocurrencies.common.my_functions import extract_id, find_prices
 
 
 class CryptocurrenciesHomepageView(ListView):
