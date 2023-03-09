@@ -13,9 +13,9 @@ class CryptocurrenciesHomepageView(ListView):
         context = super().get_context_data(**kwargs)
         my_object_list = CryptoCurrency.objects.all()
         list_of_names = []
-        for each in my_object_list:
+        for each in my_object_list:         # create list of names. This list is used for extract id´s (need id for searching price later - best practise CMCAPI)
             list_of_names.append(each.name)
-        context["coins_id"] = extract_id(list_of_names)
+        context["coins_id"] = extract_id(list_of_names)     # dictionary of pairs name:id
         context["coins_prices"] = find_prices(context["coins_id"])
 
         return context
