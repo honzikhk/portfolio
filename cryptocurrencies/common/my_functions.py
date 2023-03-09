@@ -51,33 +51,31 @@ def extract_id(list_of_coins):
         for data in data_from_json["data"]:
             if coin.lower() == data["name"].lower():
                 id_of_coin = data["id"]
-                name_id[coin] = str(id_of_coin)
+                name_id[coin.capitalize()] = str(id_of_coin)
     return name_id
 
 
-def find_prices(dict_of_names_id):
-    """
-    Take dictionary of pairs name-id, use id to find price and make dictionary of pairs name-price
-    """
-    dict_of_names_prices = {}
-    for k, v in dict_of_names_id.items():
-        url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'       # link for price. must contain id,slug or symbol
-        parameters = {
-            "id":v,
-        }
-        headers = {
-            'Accepts': 'application/json',
-            'X-CMC_PRO_API_KEY': config("X-CMC_PRO_API_KEY"),        # the key is in .env file
-        }
+def find_price(id_of_coin):
+    print(f"id_of_coin: {id_of_coin}")
+    id_of_coin = str(id_of_coin)
+    url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'       # link for price. must contain id,slug or symbol
+    parameters = {
+        "id":id_of_coin,
+    }
+    headers = {
+        'Accepts': 'application/json',
+        'X-CMC_PRO_API_KEY': config("X-CMC_PRO_API_KEY"),        # the key is in .env file
+    }
 
-        session = Session()
-        session.headers.update(headers)
+    session = Session()
+    session.headers.update(headers)
 
-        try:
-            response = session.get(url, params=parameters)
-            data = json.loads(response.text)
-            price =  data["data"][v]["quote"]["USD"]["price"]
-            dict_of_names_prices[k] = price
-        except (ConnectionError, Timeout, TooManyRedirects) as e:
-            return e
-    return dict_of_names_prices
+    try:
+        response = session.get(url, params=parameters)
+        data = json.loads(response.text)
+        price =  data["data"][id_of_coin]["quote"]["USD"]["price"]
+        return price
+    except (ConnectionError, Timeout, TooManyRedirects) as e:
+        return e
+
+
