@@ -9,4 +9,4 @@
 # made link from main_homepage, create main_homepage.html, homepageview
 # todo: for CryptocurrenciesHomepageView make function (extract price) that returns dict of my coins with prices
 # make extract_id in my_functions for now, then i can extract price. Now it does not work
-todo: rename homepage.html to homepage_crypto.html
+# todo: rename homepage.html to homepage_crypto.html

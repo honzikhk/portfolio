@@ -3,5 +3,5 @@ from .views import CryptocurrenciesHomepageView
 
 
 urlpatterns = [
-    path("", CryptocurrenciesHomepageView.as_view(), name="cryptocurrencies_homepage"),
+    path("", CryptocurrenciesHomepageView.as_view(), name="crypto_homepage"),
 ]

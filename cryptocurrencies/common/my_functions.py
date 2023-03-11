@@ -56,7 +56,6 @@ def extract_id(list_of_coins):
 
 
 def find_price(id_of_coin):
-    print(f"id_of_coin: {id_of_coin}")
     id_of_coin = str(id_of_coin)
     url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'       # link for price. must contain id,slug or symbol
     parameters = {

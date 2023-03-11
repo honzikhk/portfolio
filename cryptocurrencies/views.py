@@ -6,7 +6,7 @@ from cryptocurrencies.common.my_functions import extract_id, find_price
 
 class CryptocurrenciesHomepageView(ListView):
     model = CryptoCurrency
-    template_name = "cryptocurrencies/homepage.html"
+    template_name = "cryptocurrencies/crypto_homepage.html"
     # paginate_by = 100  # pagination = more pages of content. didnt try yet
 
     def get_context_data(self, **kwargs):
@@ -22,9 +22,18 @@ class CryptocurrenciesHomepageView(ListView):
 
         coins_total_balance = {}
         for each in list_my_object_list:
-            coins_total_balance[each["name"]] = each["amount"] * find_price(context["coins_id"][each["name"].capitalize()]) # maybe rewrite
-
+            name = each["name"].capitalize()
+            price = find_price(context["coins_id"][name])
+            balance = each["amount"] * price
+            print(type(balance))
+            coins_total_balance[each["name"]] = round(balance, 2)       # for accurate balance maybe should not use round
         context["coins_balance"] = coins_total_balance
+
+        total_crypto_balance = 0
+        for key, value in context["coins_balance"].items():
+            total_crypto_balance += value
+        context["total_crypto_balance"] = total_crypto_balance
+        print(context["total_crypto_balance"])
         return context
 
 

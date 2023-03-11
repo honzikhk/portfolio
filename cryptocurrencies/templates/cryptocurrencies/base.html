@@ -6,7 +6,9 @@
 </head>
 
 
-<span>{% now "d.m.Y" %}</span>
+<span>{% now "d.m.Y" %}</span><br>
+<span><a href="{% url "main_homepage" %}">Homepage</a></span>
+<span><a href="{% url "crypto_homepage" %}">Cryptocurrencies</a></span>
 
 <div>
     {% block body %}

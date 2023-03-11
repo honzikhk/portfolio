@@ -1,0 +1,19 @@
+{% extends 'cryptocurrencies/base.html' %}
+
+{% block body %}
+<h3>Homepage - Crypto</h3>
+<h4>Total balance: {{ total_crypto_balance }}</h4>
+
+{% for coin in object_list %}
+<p><span>{{ coin.name }} </span><span>{{ coin.amount }}</span></p>
+{% endfor %}
+
+
+
+<p>Amount in USD</p>
+{% for key, value in coins_balance.items %}
+    <p><span>{{ key }} {{ value }}</span></p>
+{% endfor %}
+
+
+{% endblock body %}
