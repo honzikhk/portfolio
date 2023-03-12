@@ -25,7 +25,6 @@ class CryptocurrenciesHomepageView(ListView):
             name = each["name"].capitalize()
             price = find_price(context["coins_id"][name])
             balance = each["amount"] * price
-            print(type(balance))
             coins_total_balance[each["name"]] = round(balance, 2)       # for accurate balance maybe should not use round
         context["coins_balance"] = coins_total_balance
 
@@ -33,10 +32,4 @@ class CryptocurrenciesHomepageView(ListView):
         for key, value in context["coins_balance"].items():
             total_crypto_balance += value
         context["total_crypto_balance"] = total_crypto_balance
-        print(context["total_crypto_balance"])
         return context
-
-
-
-class HomepageView(TemplateView):   # this view maybe should be moved somewhere away, same the main_homepage.html
-    template_name = "cryptocurrencies/main_homepage.html"
