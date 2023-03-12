@@ -10,3 +10,4 @@
 # todo: for CryptocurrenciesHomepageView make function (extract price) that returns dict of my coins with prices
 # make extract_id in my_functions for now, then i can extract price. Now it does not work
 # todo: rename homepage.html to homepage_crypto.html
+# created main app, moved main_homepage.html, change urls.py´s
