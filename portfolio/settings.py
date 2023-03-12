@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     "main",
     "cryptocurrencies",
+    "precious_metals",
 
 ]
 
